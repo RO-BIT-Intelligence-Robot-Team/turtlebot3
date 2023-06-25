@@ -1,5 +1,6 @@
 <launch>
   <!-- Arguments -->
+  <arg name="use_map_topic" default="true"/>
   <arg name="scan_topic"     default="scan"/>
   <arg name="initial_pose_x" default="0.0"/>
   <arg name="initial_pose_y" default="0.0"/>
@@ -22,6 +23,7 @@
     <param name="initial_pose_a"            value="$(arg initial_pose_a)"/>
     <param name="gui_publish_rate"          value="50.0"/>
 
+    <remap from="/map" to="static_map"/>
     <remap from="scan"                      to="$(arg scan_topic)"/>
     <param name="laser_max_range"           value="3.5"/>
     <param name="laser_max_beams"           value="180"/>
@@ -39,8 +41,9 @@
     <param name="odom_alpha2"               value="0.1"/>
     <param name="odom_alpha3"               value="0.1"/>
     <param name="odom_alpha4"               value="0.1"/>
+    <param name="odom_alpha5"               value="0.1"/>
     <param name="odom_frame_id"             value="odom"/>
     <param name="base_frame_id"             value="base_footprint"/>
-
+    <param name="use_map_topic" value="true"/>
   </node>
 </launch>
